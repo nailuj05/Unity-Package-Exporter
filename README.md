@@ -1,3 +1,15 @@
+# Fork Notice:
+This is a personal version that I made a while ago, before the main project started getting updates again. The only big change is that this fork does NOT include .git folders in the package. I would not recommend using it outside of using it to build FusionXR with my batch script:
+```bat
+@echo off
+title FusionXRExporter
+echo "Creating new release..."
+echo "Version?"
+set /p name=
+dotnet run --project PATH\TO\UnityPackageExporter -project "PATH\\TO\\FUSION\\UNITY\\PROJECT" -dir "Assets\\FusionXR\\" -output "PATH\\TO\\SAVE\\FusionXR%name%.unitypackage"
+pause
+```
+
 # Unity Package Exporter
 This library will export a series of files from a Unity3D project into a Unity Package (.unitypackage). This is very useful for **automated builds** of packages using _app voyer_. I use this myself on my [Discord Rich Presence](https://github.com/Lachee/discord-rpc-csharp) library so I dont have to rebuild the package every time.
 
