@@ -110,11 +110,11 @@ namespace UnityPackageExporter
                 }
                 else
                 {
-                    Console.WriteLine("Packing Some....");                    
+                    Console.WriteLine("Packing Some....");
                     var files = directories
                         .SelectMany(dir => Directory.GetFiles(Path.Combine(unityProject, dir), "*", SearchOption.AllDirectories))
                         .Union(assets)
-                        .Where(f => Path.GetExtension(f) != ".meta");
+                        .Where(f => Path.GetExtension(f) != ".meta" && !Path.GetFullPath(f).Contains(".git"));
 
                     PackAssets(output, unityProject, files);
                 }
